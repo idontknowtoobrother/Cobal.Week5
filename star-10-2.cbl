@@ -1,0 +1,27 @@
+       IDENTIFICATION DIVISION. 
+       PROGRAM-ID. STAR-10-1.
+       AUTHOR. JAKKRIT.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  COUNT-NUM    PIC 9(2) VALUE ZEROS.
+
+       PROCEDURE DIVISION.
+       000-BEGIN.
+           PERFORM 001-PRINT-STAR-INLINE THRU 001-EXIT
+           GOBACK
+       .
+
+       001-PRINT-STAR-INLINE.
+           PERFORM 002-PRINT-ONE-STAR WITH TEST BEFORE
+           UNTIL COUNT-NUM = 10
+
+           DISPLAY ""
+       .
+       001-EXIT.
+           EXIT
+       .
+
+       002-PRINT-ONE-STAR.
+           DISPLAY "*" WITH NO ADVANCING
+           COMPUTE COUNT-NUM = COUNT-NUM + 1
+       .
